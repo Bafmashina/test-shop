@@ -1,0 +1,21 @@
+[
+    {
+        "img": "../img/card/1.png" ,
+        "title": "Apple BYZ S852I",
+        "price": "2927",
+        "rating": "4.7"
+    },
+    {
+        "img": "../img/card/2.png" ,
+        "title": "Apple EarPods",
+        "price": "2327",
+        "rating": "4.5"
+    },
+    {
+        "img": "../img/card/3.png" ,
+        "title": "Apple EarPods",
+        "price": "2327",
+        "rating": "4.4"
+    }
+
+]
