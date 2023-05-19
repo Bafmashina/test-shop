@@ -9,21 +9,23 @@ export const BasketItem = () => {
           <div className="cartComponent">
             <div className="cartContent">
               <div className="itemComponent">
-                <img src="img/card/1.png" alt="" />
-                <div>
+                <img className="itemComponent-img" src="img/card/1.png" alt="" />
+                <div >
                   <div>
-                    <span>Apple BYZ S852I</span>
-                    <b>2927 руб</b>
+                    <span className="itemComponent-title">Apple BYZ S852I</span>
+                    <b className="itemComponent-title-price">2927 руб</b>
                   </div>
                 </div>
                 <div>
-                  <img src="img/basket/plus.png" alt="" />
+                  <img className="itemComponent-plus" src="img/basket/plus.png" alt="" />
                 </div>
-                <img src="img/basket/minus.png" alt="" />
-                <div></div>
+                <sapn className='itemComponent-count'>1</sapn>
+                <div>
+                  <img className="itemComponent-minus" src="img/basket/minus.png" alt="" />
+                </div>
               </div>
             </div>
-            <div>
+            <div className="CartBasketDelete">
               <img src="img/basket/delete.png" alt="" />
             </div>
           </div>
