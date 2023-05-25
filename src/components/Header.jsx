@@ -1,8 +1,12 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useSelector } from 'react-redux'
+
 
 export const Header = () => {
   const location = useLocation();
+  const {items, totalPrice} = useSelector(state => state.cart)
+  
 
   return (
     <header className="d-flex justify-between align-center p-25">
@@ -22,6 +26,7 @@ export const Header = () => {
           {location.pathname !== `/basket` && (
             <div>
               <img width={22} height={20} src="/img/Cart.png" alt="" />
+              <span className="spanItemCount">{items.length}</span>
             </div>
           )}
         </Link>

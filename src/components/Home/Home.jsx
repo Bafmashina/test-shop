@@ -17,12 +17,8 @@ export const Home = () => {
         <div className="d-flex mb-40">
           {hedphones.map((el) => (
             <Card
-              title={el.title}
-              price={el.price}
-              rating={el.rating}
-              img={el.img}
-              onFavorite={() => console.log("Добавили в закладки")}
-              addToCard={() => console.log("Нажали купить")}
+              key={el.id}
+              {...el}
             />
           ))}
         </div>
