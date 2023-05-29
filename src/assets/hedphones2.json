@@ -3,19 +3,19 @@
     {
         "img": "../img/card2/1.png" ,
         "title": "Apple AirPods",
-        "price": "9257",
+        "price": 9257,
         "rating": "4.7"
     },
     {
         "img": "../img/card2/2.png" ,
         "title": "GERLAX GH-04",
-        "price": "6257",
+        "price": 6257,
         "rating": "4.7"
     },
     {
         "img": "../img/card2/3.png" ,
         "title": "BOROFONE BO4",
-        "price": "7257",
+        "price": 7257,
         "rating": "4.7"
     }
 ]

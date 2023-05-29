@@ -1,4 +1,4 @@
-*{
+* {
   box-sizing: border-box;
 }
 
@@ -19,11 +19,10 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-
 }
 
 header {
-  background:#f2f2f2 ;
+  background: #f2f2f2;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   border-bottom: 1px solid #eaeaea;
@@ -36,11 +35,39 @@ header {
     margin: 10px;
   }
 
-  .hederCart{
-    margin-right: 30px;
+  .hederCart {
+    margin-right: 40px;
     justify-content: space-between;
+
+    .LiekTotal {
+      display: flex;
+      // border: 1px solid red;
+      width: 80px;
+      height: 40px;
+      border-radius: 20px;
+      align-items: center;
+
+      .spanTotalPrice {
+        margin-left: 15px;
+        font-size: 18px;
+      }
+    }
   }
-  
+
+  .totalItemsCountinCard {
+    display: flex;
+    // border: 1px solid red;
+    width: 80px;
+    height: 40px;
+    border-radius: 20px;
+    align-items: center;
+
+    .spanItemCount {
+      margin-left: 15px;
+      font-size: 18px;
+    }
+  }
+
   .hederCart:hover {
     -webkit-transform: scale(1.3);
     -ms-transform: scale(1.3);
@@ -49,14 +76,13 @@ header {
     transition-duration: 0.5s;
   }
 
-  .headerLike:hover{
+  .headerLike:hover {
     -webkit-transform: scale(1.3);
     -ms-transform: scale(1.3);
     transform: scale(1.3);
     transition: 0.5s;
     transition-duration: 0.5s;
   }
-
 }
 
 .content {
@@ -119,15 +145,15 @@ header {
     cursor: pointer;
   }
 
-  .footerIcons-Ul-1{
+  .footerIcons-Ul-1 {
     margin-right: 25px;
     margin-top: 30px;
   }
-  .footerIcons-Ul-2{
+  .footerIcons-Ul-2 {
     margin-right: 25px;
     margin-top: 25px;
   }
-  .footerIcons-Ul-3{
+  .footerIcons-Ul-3 {
     margin-right: 25px;
     margin-top: 25px;
   }
@@ -208,14 +234,3 @@ header {
     transition-duration: 0.5s;
   }
 }
-
-.spanItemCount{
-  // display: flex;
-  justify-content: space-between;
-  font-weight: "Montserrat";
-  
-  margin-left: 15px;
-  font-weight: 100;
-  font-size: 20px;
-}
-
