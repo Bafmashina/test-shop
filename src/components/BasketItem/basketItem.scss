@@ -1,18 +1,21 @@
-.body {
-  margin: 0;
-  background-color: #979797;
-  height: 100%;
-}
+// .body {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   padding: 50px;
+//   // background-color: #979797;
+// }
 
 .wraperCart {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   background: #979797;
   border-radius: 20px;
   max-width: 1440px;
-  margin: 20px auto;
-  max-height: 1000px;
-
+  
   h1 {
     padding: 40px;
   }
@@ -20,7 +23,11 @@
 
 .contentCart {
   display: flex;
-  justify-content: space-between;
+
+
+  .LocationCard{
+   margin-top: 20px;
+  }
 }
 
 .cartComponent {

@@ -9,7 +9,7 @@ export const Basket = () => {
     <div className="wrapper clear">
       <Header />
       <BasketItem />
-      <Footer />
+      <Footer/>
     </div>
   );
 };
