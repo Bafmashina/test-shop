@@ -1,6 +1,26 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addItem, minusItem, removeItem } from "../../redux/slice/cartSlice";
 
 export const CartItem = ({ id, img, title, price, count }) => {
+  const dispatch = useDispatch();
+
+  const onClickPlus = () => {
+    dispatch(
+      addItem({ 
+        id 
+      }),
+      );
+  };
+
+  const onClickMinus = () => {
+    dispatch(minusItem(id))
+  }
+
+  const onClickRemove = () => {
+    dispatch(removeItem(id))
+  }
+
   return (
     <div className="mb20">
       <div className="cartComponent">
@@ -13,15 +33,15 @@ export const CartItem = ({ id, img, title, price, count }) => {
                 <b className="itemComponent-title-price">{price * count} руб</b>
               </div>
             </div>
-            <div>
-              <img
+            <div onClick={onClickPlus}>
+              <img 
                 className="itemComponent-plus"
                 src="img/basket/plus.png"
                 alt=""
               />
             </div>
-            <sapn className="itemComponent-count">1</sapn>
-            <div>
+            <sapn className="itemComponent-count">{count}</sapn>
+            <div onClick={onClickMinus}>
               <img
                 className="itemComponent-minus"
                 src="img/basket/minus.png"
@@ -30,7 +50,7 @@ export const CartItem = ({ id, img, title, price, count }) => {
             </div>
           </div>
         </div>
-        <div className="CartBasketDelete">
+        <div onClick={onClickRemove} className="CartBasketDelete">
           <img src="img/basket/delete.png" alt="" />
         </div>
       </div>

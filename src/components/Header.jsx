@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 export const Header = () => {
   const location = useLocation();
   const { items, totalPrice } = useSelector((state) => state.cart);
+  const totalCount = items.reduce((sum, item) => sum + item.count, 0)
 
   return (
     <header className="d-flex justify-between align-center p-25">
@@ -27,7 +28,7 @@ export const Header = () => {
           {location.pathname !== `/basket` && (
             <div className="totalItemsCountinCard">
               <img width={22} height={20} src="/img/Cart.png" alt="" />
-              <span className="spanItemCount">{items.length}</span>
+              <span className="spanItemCount">{totalCount}</span>
             </div>
           )}
         </Link>

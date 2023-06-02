@@ -28,11 +28,8 @@ export const Home = () => {
           <div className="d-flex">
             {hedphones.map((el) => (
               <Card
-                title={el.title}
-                price={el.price}
-                rating={el.rating}
-                img={el.img}
-                onClickPlus={() => console.log(el)}
+              key={el.id}
+              {...el}
               />
             ))}
           </div>
@@ -43,11 +40,8 @@ export const Home = () => {
         <div className="d-flex mb-40">
           {hedphones2.map((el) => (
             <Card
-              title={el.title}
-              price={el.price}
-              rating={el.rating}
-              img={el.img}
-              onClickPlus={() => console.log(el)}
+            key={el.id}
+            {...el}
             />
           ))}
         </div>
