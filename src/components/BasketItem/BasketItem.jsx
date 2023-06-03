@@ -1,3 +1,4 @@
+import { CartButton } from "./CartButton";
 import { CartItem } from "./CartItem";
 import "./basketItem.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,6 +11,10 @@ export const BasketItem = () => {
     <div className="body">
       <div className="wraperCart">
         <h1>Корзина</h1>
+        <div className="removeAllItems">
+          <button className="removeAllItems-btn">Отчистить корзину</button>
+          <img className="removeAllItems-img" src="img/basket/delete.png" alt="" />
+        </div>
         <div className="contentCart">
           <div className="LocationCard">
             {items.map((item) => (
@@ -21,17 +26,7 @@ export const BasketItem = () => {
 
           {/* Оплата */}
 
-          <div className="priceComponent">
-            <div className="contentPrice-C">
-              <div className="price">
-                <span>ИТОГО</span>
-                <b>2927 руб</b>
-              </div>
-              <div>
-                <button className="buttonPrice">Оплата</button>
-              </div>
-            </div>
-          </div>
+          <CartButton />
         </div>
       </div>
     </div>

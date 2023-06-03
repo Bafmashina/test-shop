@@ -51,7 +51,7 @@ export const CartItem = ({ id, img, title, price, count }) => {
           </div>
         </div>
         <div onClick={onClickRemove} className="CartBasketDelete">
-          <img src="img/basket/delete.png" alt="" />
+          <img className="CartBasketDelete-img" src="img/basket/remove.png" alt="" />
         </div>
       </div>
     </div>

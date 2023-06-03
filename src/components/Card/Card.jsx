@@ -4,8 +4,11 @@ import styles from "./Card.module.scss";
 import {useDispatch, useSelector} from 'react-redux'
 import {addItem} from '../../redux/slice/cartSlice'
 
-export const Card = ({id, title, price, img, rating,onFavorite }) => {
+export const Card = ({id, title, price, img, rating, }) => {
   const dispatch = useDispatch()
+  const countBuy = useSelector(state => state.cart.items.find(obj => obj.id === id))
+
+  const addedCount = countBuy ? countBuy.count : 0
 
   const onClickAdd = () => {
     const item = {
@@ -32,11 +35,12 @@ export const Card = ({id, title, price, img, rating,onFavorite }) => {
             height={21.93}
             src="/img/rating.png"
             alt=""
-            onClick={onFavorite}
           />
           <b>{rating}</b>
           <button  className={styles.button} onClick={onClickAdd}>
-            Купить
+            Купить {
+              addedCount > 0 && <i className={styles.countBuyItems}>{addedCount}</i>
+            }
           </button>
         </div>
       </div>
