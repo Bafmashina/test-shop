@@ -192,17 +192,38 @@
   margin: 0 auto;
 
   width: 400px;
-  height: 180px;
+  height: 240px;
 
   .contentPrice-C {
     text-align: center;
 
-    .price {
+    .basketAllCounts{
       display: flex;
       justify-content: space-between;
       padding: 20px;
 
       span {
+        display: flex;
+        font-family: "Montserrat";
+        font-size: 20px;
+        letter-spacing: 1px;
+      }
+
+      b {
+        font-family: "Montserrat";
+        font-size: 18px;
+        letter-spacing: 1px;
+      }
+    }
+
+    .price {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+    
+
+      span {
+        display: flex;
         font-family: "Montserrat";
         font-size: 20px;
         letter-spacing: 1px;
