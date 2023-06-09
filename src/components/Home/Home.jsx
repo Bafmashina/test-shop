@@ -6,6 +6,7 @@ import { Footer } from "../Footer";
 
 import hedphones from "../../assets/hedphones.json";
 import hedphones2 from "../../assets/hedphones2.json";
+import { Sort } from "../Sort/Sort";
 
 export const Home = () => {
   return (
@@ -13,13 +14,14 @@ export const Home = () => {
       <Header />
       {/* ВВЕРХ */}
       <div className="content p-40">
+
+        {/* Сортировка */}
+       <Sort/>
+
         <h1>Наушники</h1>
         <div className="d-flex mb-40">
           {hedphones.map((el) => (
-            <Card
-              key={el.id}
-              {...el}
-            />
+            <Card key={el.id} {...el} />
           ))}
         </div>
 
@@ -27,10 +29,7 @@ export const Home = () => {
         <div className="secondItems">
           <div className="d-flex">
             {hedphones.map((el) => (
-              <Card
-              key={el.id}
-              {...el}
-              />
+              <Card key={el.id} {...el} />
             ))}
           </div>
         </div>
@@ -39,10 +38,7 @@ export const Home = () => {
         <h1>Беспроводные Наушники</h1>
         <div className="d-flex mb-40">
           {hedphones2.map((el) => (
-            <Card
-            key={el.id}
-            {...el}
-            />
+            <Card key={el.id} {...el} />
           ))}
         </div>
       </div>
