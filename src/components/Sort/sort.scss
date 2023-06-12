@@ -1,27 +1,53 @@
 .wrapper-sort {
   text-align: center;
   margin: 0 auto;
+  font-family: "Montserrat", sans-serif;
 }
 
 .sort {
-  border: 1px solid red;
+  border: 1px solid #f2f2f2;
   border-radius: 20px;
+  background: #f2f2f2;
+  box-shadow: 0px 0px 20px rgba(2, 2, 2, 0.1);
 
   width: 320px;
   height: 25px;
 
   margin: 0 auto;
   margin-bottom: 5px;
+  cursor: pointer;
+
+  &:hover {
+    // -webkit-transform: scale(1.3);
+    // -ms-transform: scale(1.3);
+    // transform: scale(1.3);
+    // transition: 0.5s;
+    // transition-duration: 0.5s;
+  }
 }
 
 .sort-popup {
-  border: 1px solid red;
+  // border: 1px solid #f2f2f2;
   border-radius: 20px;
+  background: #f2f2f2;
+  box-shadow: 0px 0px 20px rgba(2, 2, 2, 0.1);
 
   width: 180px;
-  height: 80px;
-  padding-top: 5px;
+  height: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 
   margin: 0 auto;
   margin-left: 664px;
+
+  li {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #979797;
+    }
+  }
 }
