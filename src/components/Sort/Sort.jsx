@@ -1,33 +1,37 @@
 import React from "react";
 import "./sort.scss";
 
-export const Sort = () => {
+export const Sort = ({ value, onChangeSort }) => {
   const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState(0)
 
-  const list = ["Популярности", "цене", "алфавиту"];
-  const sortName = list[selected]
+  const list = [
+    { name: "популярности", sortProperty: "rating" },
+    { name: "цене", sortProperty: "price" },
+    { name: "алфавиту", sortProperty: "title" },
+  ];
 
   const onClickSortItem = (id) => {
-    setSelected(id)
-    setOpen(false)
-  }
+    onChangeSort(id);
+    setOpen(false);
+  };
 
   return (
     <div className="wrapper-sort">
       <div className="sort">
         <b>Сортировать по: </b>
-        <span onClick={() => setOpen(!open)}>{sortName}</span>
+        <span onClick={() => setOpen(!open)}>{value.name}</span>
       </div>
       {open && (
         <div className="sort-popup">
           <ul>
-            {list.map((name, id) => (
+            {list.map((obj, id) => (
               <li
                 key={id}
-                onClick={() => onClickSortItem(id)}
-                className={selected === id ? "active" : ""}
-              >{name}</li>
+                onClick={() => onClickSortItem(obj)}
+                className={value.sortProperty === obj.sortProperty ? "active" : ""}
+              >
+                {obj.name}
+              </li>
             ))}
           </ul>
         </div>

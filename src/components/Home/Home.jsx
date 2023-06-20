@@ -9,9 +9,16 @@ import Skeleton from "../Card/Skeleton";
 export const Home = () => {
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
+  const [sortType, setSortType] = React.useState({
+    name: 'популярности',
+    sortProperty: 'rating'
+  })
 
   React.useEffect(() => {
-    fetch("https://648f2d9375a96b664444ca5f.mockapi.io/items")
+
+    const sortBy = sortType.sortProperty.replace('-', '')
+
+    fetch(`https://648f2d9375a96b664444ca5f.mockapi.io/items?&sortBy=${sortBy}`)
       .then((res) => {
         return res.json();
       })
@@ -19,7 +26,7 @@ export const Home = () => {
         setItems(arr);
         setIsLoading(false);
       });
-  }, []);
+  }, [sortType]);
 
   return (
     <>
@@ -27,7 +34,7 @@ export const Home = () => {
       {/* ВВЕРХ */}
       <div className="content p-40">
         {/* Сортировка */}
-        <Sort />
+        <Sort value={sortType} onChangeSort={(i) => setSortType(i)}/>
 
         <h1>Наушники</h1>
         <div className="d-flex mb-40">
@@ -50,7 +57,6 @@ export const Home = () => {
         {/* НИЗ */}
         <h1>Беспроводные Наушники</h1>
         <div className="d-flex mb-40">
-
           {isLoading
             ? [...new Array(3)].map((_, index) => <Skeleton key={index} />)
             : items.map((el, i) =>
