@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 import { Header } from "../Header";
 import { Card } from "../Card/Card";
@@ -16,14 +17,12 @@ export const Home = () => {
 
   React.useEffect(() => {
 
+    const order = sortType.sortProperty.includes('-') ? 'asc' : 'desc'
     const sortBy = sortType.sortProperty.replace('-', '')
 
-    fetch(`https://648f2d9375a96b664444ca5f.mockapi.io/items?&sortBy=${sortBy}`)
+    axios.get(`https://648f2d9375a96b664444ca5f.mockapi.io/items?&sortBy=${sortBy}&order=${order}`)
       .then((res) => {
-        return res.json();
-      })
-      .then((arr) => {
-        setItems(arr);
+        setItems(res.data);
         setIsLoading(false);
       });
   }, [sortType]);

@@ -5,6 +5,10 @@ const initialState = {
   totalPrice: 0,
 };
 
+const calcToPrice = (items) => {
+  return items.reduce((sum, obj) => obj.price * obj.count + sum, 0)
+}
+
 const cartSlice = createSlice({
   name: "cart",
   initialState,
@@ -21,18 +25,20 @@ const cartSlice = createSlice({
         });
       }
 
-      state.totalPrice = state.items.reduce((sum, obj) => {
-        return obj.price + sum;
-      }, 0);
+      state.totalPrice = calcToPrice(state.items)
     },
     minusItem(state, action) {
       const fiendItem = state.items.find((obj) => obj.id === action.payload);
+
       if(fiendItem) {
         fiendItem.count--
       }
+
+      state.totalPrice = calcToPrice(state.items)
     },
     removeItem(state, action) {
       state.items = state.items.filter((obj) => obj.id !== action.payload);
+      state.totalPrice = calcToPrice(state.items)
     },
     clearItems(state) {
       state.items = [];

@@ -5,8 +5,10 @@ export const Sort = ({ value, onChangeSort }) => {
   const [open, setOpen] = React.useState(false);
 
   const list = [
-    { name: "популярности", sortProperty: "rating" },
-    { name: "цене", sortProperty: "price" },
+    { name: "популярности(ВОЗР)", sortProperty: "rating" },
+    { name: "популярности(УБВ)", sortProperty: "-rating" },
+    { name: "цене(ВОЗР)", sortProperty: "price" },
+    { name: "цене(УБВ)", sortProperty: "-price" },
     { name: "алфавиту", sortProperty: "title" },
   ];
 
