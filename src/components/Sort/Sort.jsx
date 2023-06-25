@@ -1,9 +1,13 @@
 import React from "react";
 import "./sort.scss";
+import {useSelector, useDispatch} from 'react-redux'
+import {setSort} from '../../redux/slice/filterSlice'
 
-export const Sort = ({ value, onChangeSort }) => {
+export const Sort = () => {
+  const dispatch = useDispatch()
+  const sort = useSelector((state) => state.filter.sort)
+
   const [open, setOpen] = React.useState(false);
-
   const list = [
     { name: "популярности(ВОЗР)", sortProperty: "rating" },
     { name: "популярности(УБВ)", sortProperty: "-rating" },
@@ -12,8 +16,8 @@ export const Sort = ({ value, onChangeSort }) => {
     { name: "алфавиту", sortProperty: "title" },
   ];
 
-  const onClickSortItem = (id) => {
-    onChangeSort(id);
+  const onClickSortItem = (obj) => {
+    dispatch(setSort(obj))
     setOpen(false);
   };
 
@@ -21,7 +25,7 @@ export const Sort = ({ value, onChangeSort }) => {
     <div className="wrapper-sort">
       <div className="sort">
         <b>Сортировать по: </b>
-        <span onClick={() => setOpen(!open)}>{value.name}</span>
+        <span onClick={() => setOpen(!open)}>{sort.name}</span>
       </div>
       {open && (
         <div className="sort-popup">
@@ -30,7 +34,7 @@ export const Sort = ({ value, onChangeSort }) => {
               <li
                 key={id}
                 onClick={() => onClickSortItem(obj)}
-                className={value.sortProperty === obj.sortProperty ? "active" : ""}
+                className={sort.sortProperty === obj.sortProperty ? "active" : ""}
               >
                 {obj.name}
               </li>

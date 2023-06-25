@@ -1,24 +1,33 @@
 import React from "react";
 import axios from "axios";
+import qs from 'qs'
+import {useNavigate} from 'react-router-dom'
 
 import { Header } from "../Header";
 import { Card } from "../Card/Card";
 import { Footer } from "../Footer";
 import { Sort } from "../Sort/Sort";
 import Skeleton from "../Card/Skeleton";
+import { useSelector } from "react-redux";
 
 export const Home = () => {
+  const navigate = useNavigate()
+  const sortType = useSelector((state) => state.filter.sort.sortProperty)
+
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  const [sortType, setSortType] = React.useState({
-    name: 'популярности',
-    sortProperty: 'rating'
-  })
+
+  React.useEffect(() => {
+    if(window.location.search) {
+      const params = qs.parse(window.location.search.substring(1))
+      console.log(params)
+    }
+  }, [])
 
   React.useEffect(() => {
 
-    const order = sortType.sortProperty.includes('-') ? 'asc' : 'desc'
-    const sortBy = sortType.sortProperty.replace('-', '')
+    const order = sortType.includes('-') ? 'asc' : 'desc'
+    const sortBy = sortType.replace('-', '')
 
     axios.get(`https://648f2d9375a96b664444ca5f.mockapi.io/items?&sortBy=${sortBy}&order=${order}`)
       .then((res) => {
@@ -27,13 +36,21 @@ export const Home = () => {
       });
   }, [sortType]);
 
+  React.useEffect(() => {
+    const queryString = qs.stringify({
+      sortProperty: sortType
+    })
+
+    navigate(`?${queryString}`)
+  }, [sortType])
+
   return (
     <>
       <Header />
       {/* ВВЕРХ */}
       <div className="content p-40">
         {/* Сортировка */}
-        <Sort value={sortType} onChangeSort={(i) => setSortType(i)}/>
+        <Sort />
 
         <h1>Наушники</h1>
         <div className="d-flex mb-40">
