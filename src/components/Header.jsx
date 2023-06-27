@@ -9,17 +9,11 @@ export const Header = () => {
   const { items, totalPrice } = useSelector((state) => state.cart);
   const totalCount = items.reduce((sum, item) => sum + item.count, 0)
 
-  const getCardfromLS = () => {
-    const data = localStorage.getItem('cart')
-    return data ? JSON.parse(data) : [];
-  }
-
   React.useEffect(() => {
     if(isMounted.current) {
       const json = JSON.stringify(items)
     localStorage.setItem('cart', json)
     }
-    getCardfromLS()
 
     isMounted.current = true
   }, [items])
